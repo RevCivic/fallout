@@ -458,10 +458,20 @@
 			"effect": ""
 		},
 		"power_armor_chassis": {
-			"templates": ["base","physical","equipable","slotted"]
+			"templates": ["base","physical","equipable","slotted"],
+			"components": {
+				"max": 0,
+				"current":0,
+				"list":[]
+			}
 		},
 		"power_armor_component": {
-			"templates": ["base","physical","equipable","slotted"]
+			"templates": ["base","physical","equipable","slotted"],
+			"mods": {
+				"max": 0,
+				"current":0,
+				"list":[]
+			}
 		},
 		"power_armor_mod": {
 			"templates": ["base","physical","equipable"]

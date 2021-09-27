@@ -1,7 +1,8 @@
 {{!-- Generally, you'll want to make more specific templates when possible. --}}
 <form class="{{cssClass}}" autocomplete="off">
     {{> "systems/fallout/templates/item/parts/item-header.html"}}
-    {!-- Sheet Tab Navigation --}}
+
+    {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="attributes">{{localize "FALLOUT.TEMPLATES.Attributes"}}</a>
         <a class="item" data-tab="components">{{localize "FALLOUT.COMPONENTS.components"}}</a>
@@ -39,13 +40,13 @@
                 <label class="resource-label">{{localize "FALLOUT.COMPONENTS.components"}}</label>
                 <div class="flexrow align-mid">
                     <span>
-                        <label for="data.mods.current">{{localize "FALLOUT.TEMPLATES.current"}}</label>
-                        <input type="number" name="data.mods.current" class="num-short-2" value="{{data.mods.current}}">
+                        <label for="data.components.current">{{localize "FALLOUT.TEMPLATES.current"}}</label>
+                        <input type="number" name="data.components.current" class="num-short-2" value="{{data.components.current}}">
                     </span>
                     <span class="text-center">/</span>
                     <span>
-                        <label for="data.mods.max">{{localize "FALLOUT.TEMPLATES.max"}}</label>
-                        <input type="number" name="data.mods.max" class="num-short-2" value="{{data.mods.max}}">
+                        <label for="data.components.max">{{localize "FALLOUT.TEMPLATES.max"}}</label>
+                        <input type="number" name="data.components.max" class="num-short-2" value="{{data.components.max}}">
                     </span>
                 </div>
                 {{#each allApparel as |apparel index| }}

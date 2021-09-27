@@ -115,6 +115,9 @@
 	"FALLOUT.MODS": {
 		"mods": "Mods"
 	},
+	"FALLOUT.COMPONENTS": {
+		"components": "Components"
+	},
 	"FALLOUT.LEVEL": {
 		"Level": "Level",
 		"CurrentXP": "Current XP",
