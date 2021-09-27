@@ -25,25 +25,7 @@
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
-        {{!-- Components Tab (IF POWER ARMOR) --}}
-        {{#ifCond data.appareltype '==' 'powerArmor'}}
-        <div class="tab" data-group="primary" data-tab="Components">
-            <ol class="items-list components-list">
-                {{#each component as |section sid|}}
-                <li class="items-header flexrow" data-effect-type="{{section.type}}">
-                    <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-                    <div class="item-controls component-controls flexrow">
-                        <a class="effect-control" data-action="create" title="{{localize 'FALLOUT.EffectCreate'}}">
-                            <i class="fas fa-plus"></i> {{localize "FALLOUT.Add"}}
-                        </a>
-                    </div>
-                </li>   
-            </ol>
-        </div>
-        {{/ifCond}}
-
-        {{!-- Mods Tab (IF NOT POWER ARMOR) --}}
-        {{#ifCond data.appareltype '!=' 'powerArmor'}}
+        {{!-- Mods Tab --}}
         <div class="tab" data-group="primary" data-tab="mods">
             <div class="flexrow resource-row align-mid">
                 <label class="resource-label">{{localize "FALLOUT.MODS.mods"}}</label>
@@ -63,7 +45,6 @@
                 {{editor content=data.mods.list target="data.mods.list" button=true owner=owner editable=editable}}
             </div>
         </div>
-        {{/ifCond}}
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">

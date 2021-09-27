@@ -259,6 +259,9 @@
 			"apparel_mod",
 			"robot_armor",
 			"robot_mod",
+			"power_armor_chassis",
+			"power_armor_component",
+			"power_armor_mod",
 			"books_and_magz",
 			"consumable",
 			"miscellany",
@@ -453,6 +456,15 @@
 		"robot_mod": {
 			"templates": ["base", "physical", "equipable"],
 			"effect": ""
+		},
+		"power_armor_chassis": {
+			"templates": ["base","physical","equipable","slotted"]
+		},
+		"power_armor_component": {
+			"templates": ["base","physical","equipable","slotted"]
+		},
+		"power_armor_mod": {
+			"templates": ["base","physical","equipable"]
 		},
 		"special_ability": {
 			"templates": ["base"]
