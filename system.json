@@ -33,8 +33,8 @@
 		}
 	],
 	"socket": true,
-	"url": "https://github.com/superseva/fallout",
-	"manifest": "https://raw.githubusercontent.com/superseva/fallout/main/system.json",
-	"download": "https://github.com/superseva/fallout/archive/refs/heads/main.zip",
+	"url": "https://github.com/revcivic/fallout",
+	"manifest": "https://raw.githubusercontent.com/RevCivic/fallout/main/system.json",
+	"download": "https://github.com/revcivic/fallout/archive/refs/heads/main.zip",
 	"license": "LICENSE.txt"
 }
