@@ -4,8 +4,179 @@
     {!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="attributes">{{localize "FALLOUT.TEMPLATES.Attributes"}}</a>
-        <a class="item" data-tab="components">{{localize "FALLOUT.TEMPLATES.Armor_Type"}}</a>
+        <a class="item" data-tab="components">{{localize "FALLOUT.COMPONENTS.components"}}</a>
+        <a class="item" data-tab="chassis mods">{{localize "FALLOUT.MODS.mods"}}</a>
         <a class="item" data-tab="description">{{localize "FALLOUT.TEMPLATES.Description"}}</a>
         <a class="item" data-tab="effects">{{localize "FALLOUT.TEMPLATES.Effects"}}</a>
     </nav>
+    {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Mods Tab --}}
+        <div class="tab" data-group="primary" data-tab="chassis mods">
+            <div class="flexrow resource-row align-mid">
+                <label class="resource-label">{{localize "FALLOUT.MODS.mods"}}</label>
+                <div class="flexrow align-mid">
+                    <span>
+                        <label for="data.mods.current">{{localize "FALLOUT.TEMPLATES.current"}}</label>
+                        <input type="number" name="data.mods.current" class="num-short-2" value="{{data.mods.current}}">
+                    </span>
+                    <span class="text-center">/</span>
+                    <span>
+                        <label for="data.mods.max">{{localize "FALLOUT.TEMPLATES.max"}}</label>
+                        <input type="number" name="data.mods.max" class="num-short-2" value="{{data.mods.max}}">
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+
+        {{!-- Components Tab --}}
+        <div class="tab" data-group="primary" data-tab="components">
+            <div class="flexrow resource-row align-mid">
+                <label class="resource-label">{{localize "FALLOUT.COMPONENTS.components"}}</label>
+                <div class="flexrow align-mid">
+                    <span>
+                        <label for="data.mods.current">{{localize "FALLOUT.TEMPLATES.current"}}</label>
+                        <input type="number" name="data.mods.current" class="num-short-2" value="{{data.mods.current}}">
+                    </span>
+                    <span class="text-center">/</span>
+                    <span>
+                        <label for="data.mods.max">{{localize "FALLOUT.TEMPLATES.max"}}</label>
+                        <input type="number" name="data.mods.max" class="num-short-2" value="{{data.mods.max}}">
+                    </span>
+                </div>
+                {{#each allApparel as |apparel index| }}
+                    <ol class="items-list">
+                        <li class="item apparel flexrow items-header">
+                            <div class="flexrow flexlarge item-name upperC">{{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</div>
+                            <div class="flexrow flexlarge item-info">
+                                {{#ifCond apparel.apparelType '==' 'powerArmor'}}
+                                <div class="text-center">
+                                    <p>{{localize "FALLOUT.powered"}}</p>
+                                </div>
+                                {{/ifCond}}
+                                <div class="text-center flex2">
+                                    <p>{{localize "FALLOUT.TEMPLATES.Locations"}}</p>
+                                </div>
+                                <div class="text-center flex2">
+                                    <p>{{localize "FALLOUT.TEMPLATES.Resistances"}}</p>
+                                </div>
+                            </div>
+                            <div class="item-controls">
+                                <a class="item-control item-create" title="Create item" data-type="apparel" data-appareltype="{{apparel.apparelType}}"><i class="fas fa-plus"></i> {{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</a>
+                            </div>
+                        </li>
+                        {{#each list as |item id|}}
+                        <li class="item apparel" data-item-id="{{item._id}}">
+                            <div class=" flexrow">
+                                <div class="item-name flexlarge expandable-info">
+                                    <div class="item-image">
+                                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                                    </div>
+                                    <h4 class="resource-label">{{item.name}}</h4>
+                                </div>
+                                <div class="flexrow flexlarge item-info align-mid">
+                                    {{#ifCond item.data.appareltype '==' 'powerArmor'}}
+                                    <a class="text-center item-control item-powered {{#unless item.data.powered}}item-unpowered{{/unless}}" title='{{localize "FALLOUT.powered"}}'>
+                                        <i class="fas fa-dot-circle"></i>
+                                    </a>
+                                    {{/ifCond}}
+                                    <div class="text-center flex2">
+                                        {{#each item.data.location as |hasLoc loc|}}
+                                        <span class="font-size-11">{{#ifCond hasLoc '==' true}}{{localize (concat "FALLOUT.BODYLOCATION_ABBR." ../../../actor.type "." loc)}}&nbsp;{{/ifCond}}</span>
+                                        {{/each}}
+                                    </div>
+                                    <div class="text-center flex2">
+                                        {{#each item.data.resistance as |resValue res|}}
+                                        <span><i class="{{damageFaIconClass res}}" title="{{res}}"></i>:{{resValue}}&nbsp;</span>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <div class=" item-controls">
+                                    <a class="item-control item-stash {{#unless item.data.stashed}}item-unstashed{{/unless}}" title='{{localize "FALLOUT.UI.stashed"}}'>
+                                        <i class="fas fa-briefcase"></i>
+                                    </a>
+                                    <a class="item-control item-toggle {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "FALLOUT.equipped"}}'>
+                                        <i class="fas fa-tshirt"></i>
+                                    </a>
+                                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+                {{/each}}
+            </div>
+            
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            <div class="resource-row align-mid">
+                <label class="resource-label">{{localize "FALLOUT.TEMPLATES.Armor_Type"}} &nbsp;</label>
+                <select name="data.appareltype">
+                    {{#select data.appareltype}}
+                    {{#each FALLOUT.APPAREL_TYPE as |apparelType key |}}
+                    <option class="capitalized" value="{{key}}">{{localize apparelType}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+            <hr />
+            <div class="grid grid-3col">
+                <div class="locations pad-5">
+                    <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.Locations"}}</h4>
+                    {{#each data.location as |isChecked key|}}
+                    <div class="location flexrow align-mid">
+                        <label class="checkbox-label">{{localize (concat 'FALLOUT.BODYLOCATION.character.' key)}}</label>
+                        <input class="input-checkbox" type="checkbox" name="data.location.{{key}}" {{checked isChecked}} data-dtype="Boolean" />
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="resistances pad-5">
+                    <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.Resistances"}}</h4>
+                    {{#each data.resistance as |resistance key|}}
+                    <div class="flexrow resource-row align-mid">
+                        <label for="data.resistance.{{key}}" class="capitalized">{{localize (concat 'FALLOUT.RESISTANCE.'key)}}</label>
+                        <input class="num-short-2" type="number" name="data.resistance.{{key}}" value="{{resistance}}" />
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="equiped pad-5">
+                    <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.GENERAL"}}</h4>
+                    <div class="flexrow resource-row align-mid">
+                        <label class="capitalized checkbox-label">{{localize "FALLOUT.equipped"}}</label>
+                        <input class="input-checkbox" type="checkbox" name="data.equipped" {{checked data.equipped}} data-dtype="Boolean" />
+                    </div>
+                    {{!-- POWER ARMOR SECTION --}}
+                    {{#ifCond data.appareltype '==' 'powerArmor'}}
+                    <h4 class="resource-header">{{localize "FALLOUT.APPAREL.powerArmor"}}</h4>
+                    <div>
+                        <div class="flexrow resource-row align-mid">
+                            <label class="capitalized checkbox-label">{{localize "FALLOUT.HEALTH.health"}}</label>
+                            <span class="flex2 align-right">
+                                <input class="num-short-2" type="number" name="data.health.value" value="{{data.health.value}}">
+                                <span>/</span>
+                                <input class="num-short-2" type="number" name="data.health.max" value="{{data.health.max}}">
+                            </span>
+                        </div>
+                        <div class="flexrow resource-row align-mid">
+                            <label class="capitalized checkbox-label">{{localize "FALLOUT.powered"}}</label>
+                            <input class="input-checkbox" type="checkbox" name="data.powered" {{checked data.powered}} data-dtype="Boolean" />
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Active Effects Tab --}}
+        <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+            {{> "systems/fallout/templates/item/parts/item-effects.html"}}
+        </div>
+    </section>
 </form>
