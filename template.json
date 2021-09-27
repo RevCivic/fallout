@@ -285,6 +285,11 @@
 			"attachable": {
 				"attachable": true,
 				"attached": false
+			},
+			"slotted": {
+				"modifiable" : true,
+				"slot_limit" : false,
+				"slots" : 0
 			}
 		},
 		"skill": {
@@ -305,7 +310,7 @@
 			"requirements": ""
 		},
 		"weapon": {
-			"templates": ["base", "physical", "equipable"],
+			"templates": ["base", "physical", "equipable","slotted"],
 			"melee": false,
 			"weaponType": "",
 			"ammo": "",
@@ -379,7 +384,7 @@
 			"perks": ""
 		},
 		"apparel": {
-			"templates": ["base", "physical", "equipable"],
+			"templates": ["base", "physical", "equipable","slotted"],
 			"appareltype": "",
 			"armorType": "",
 			"powered": "",
@@ -426,7 +431,7 @@
 			"perks": ""
 		},
 		"robot_armor": {
-			"templates": ["base", "physical", "equipable"],
+			"templates": ["base", "physical", "equipable","slotted"],
 			"appareltype": "",
 			"resistance": {
 				"physical": 0,
