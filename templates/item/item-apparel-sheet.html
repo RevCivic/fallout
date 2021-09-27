@@ -27,20 +27,19 @@
 
         {{!-- Components Tab (IF POWER ARMOR) --}}
         {{#ifCond data.appareltype '==' 'powerArmor'}}
-        <!-- <div class="tab" data-group="primary" data-tab="Components">
+        <div class="tab" data-group="primary" data-tab="Components">
             <ol class="items-list components-list">
                 {{#each component as |section sid|}}
                 <li class="items-header flexrow" data-effect-type="{{section.type}}">
                     <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-                    <div class="effect-source">{{localize "FALLOUT.TEMPLATES.Source"}}</div>
-                    <div class="effect-source">{{localize "FALLOUT.TEMPLATES.Duration"}}</div>
-                    <div class="item-controls effect-controls flexrow">
+                    <div class="item-controls component-controls flexrow">
                         <a class="effect-control" data-action="create" title="{{localize 'FALLOUT.EffectCreate'}}">
                             <i class="fas fa-plus"></i> {{localize "FALLOUT.Add"}}
                         </a>
                     </div>
                 </li>   
-        </div> -->
+            </ol>
+        </div>
         {{/ifCond}}
 
         {{!-- Mods Tab (IF NOT POWER ARMOR) --}}
