@@ -10,7 +10,11 @@
         <a class="item" data-tab="description">{{localize "FALLOUT.TEMPLATES.Description"}}</a>
         <a class="item" data-tab="effects">{{localize "FALLOUT.TEMPLATES.Effects"}}</a>
     </nav>
-    {{!-- Description Tab --}}
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
