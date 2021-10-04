@@ -40,8 +40,8 @@ export class FalloutItemSheet extends ItemSheet {
     // return `${path}/item-sheet.html`;
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    if(templates.includes($this.item.data-type)) {
-      return `${path}/item-{$this.item.data.type}-sheet.html`;
+    if(templates.includes("${this.item.data-type}")) {
+      return `${path}/item-${this.item.data.type}-sheet.html`;
     } else {
       return `${path}/item-sheet.html`;
     }
