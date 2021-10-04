@@ -326,7 +326,8 @@
 			"thirst":"thirst",
 			"sleep":"sleep",
 			"fatigue":"fatigue"
-		}
+		},
+		"Slot": "Slot"
 	},
 	"FALLOUT.FOOD": "Food",
 	"FALLOUT.BEVERAGE": "Beverage",
