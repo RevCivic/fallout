@@ -43,6 +43,20 @@
                 <label class="resource-label">{{localize "FALLOUT.COMPONENTS.components"}}</label>
                 <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.Locations"}}</h4>
                 <ol>
+                    <li class="item apparel flexrow items-header">
+                        <div class="flexrow flexlarge item-name upperC">{{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</div>
+                        <div class="flexrow flexlarge item-info">
+                            <div class="text-center flex2">
+                                <p>{{localize "FALLOUT.TEMPLATES.Locations"}}</p>
+                            </div>
+                            <div class="text-center flex2">
+                                <p>{{localize "FALLOUT.TEMPLATES.Resistances"}}</p>
+                            </div>
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-create" title="Create item" data-type="apparel" data-appareltype="{{apparel.apparelType}}"><i class="fas fa-plus"></i> {{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</a>
+                        </div>
+                    </li>
                     {{#each list as |item id|}}
                         <li class="item apparel" data-item-id="{{item._id}}">
                             <div class="flexrow">
