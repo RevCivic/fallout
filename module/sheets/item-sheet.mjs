@@ -19,32 +19,28 @@ export class FalloutItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/fallout/templates/item";
-    const templates = [
-      "ammo",
-      "apparel_mod",
-      "apparel",
-      "books_and_magz",
-      "consumable",
-      "item",
-      "miscellany",
-      "perk",
-      "power_armor_chassis",
-      "robot_armor",
-      "robot_mod",
-      "skill",
-      "special_ability",
-      "weapon_mod",
-      "weapon"
-    ]
+    // const templates = [
+    //   "ammo",
+    //   "apparel_mod",
+    //   "apparel",
+    //   "books_and_magz",
+    //   "consumable",
+    //   "item",
+    //   "miscellany",
+    //   "perk",
+    //   "power_armor_chassis",
+    //   "robot_armor",
+    //   "robot_mod",
+    //   "skill",
+    //   "special_ability",
+    //   "weapon_mod",
+    //   "weapon"
+    // ]
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    if(templates.includes("${this.item.data-type}")) {
       return `${path}/item-${this.item.data.type}-sheet.html`;
-    } else {
-      return `${path}/item-sheet.html`;
-    }
       
   }
 
