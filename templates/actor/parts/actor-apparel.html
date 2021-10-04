@@ -20,7 +20,7 @@
             <a class="item-control item-create" title="Create item" data-type="apparel" data-appareltype="{{apparel.apparelType}}"><i class="fas fa-plus"></i> {{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</a>
         </div>
     </li>
-    {{#each list as |item id|}}
+    {{#each components.list as |item id|}}
     <li class="item apparel" data-item-id="{{item._id}}">
         <div class=" flexrow">
             <div class="item-name flexlarge expandable-info">
