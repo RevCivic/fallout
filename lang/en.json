@@ -16,6 +16,9 @@
 	"ITEM.TypeSkill": "Skill",
 	"ITEM.TypePerk": "Perk",
 	"ITEM.TypeSpecial_ability": "Special Ability",
+	"ITEM.TypePower_armor_chassis": "Power Armor Chassis",
+	"ITEM.TypePower_armor_component": "Power Armor Component",
+	"ITEM.TypePower_armor_mod": "Power Armor Mod",
 
 	"FALLOUT.AbilityStr": "Strength",
 	"FALLOUT.AbilityPer": "Perception",
