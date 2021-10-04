@@ -110,7 +110,7 @@ export class FalloutItemSheet extends ItemSheet {
       delete itemData.data["type"];
       // Finally, create the item!
       console.log(header);
-      return await Item.create(itemData, { parent: header.item });
+      return await Item.create(itemData, { parent: event.parent });
     });
 
     // Tag Rank Change
