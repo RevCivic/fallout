@@ -41,17 +41,6 @@
         <div class="tab" data-group="primary" data-tab="components">
             <div class="flexrow resource-row align-mid">
                 <label class="resource-label">{{localize "FALLOUT.COMPONENTS.components"}}</label>
-                <div class="flexrow align-mid">
-                    <span>
-                        <label for="data.components.current">{{localize "FALLOUT.TEMPLATES.current"}}</label>
-                        <input type="number" name="data.components.current" class="num-short-2" value="{{data.components.current}}">
-                    </span>
-                    <span class="text-center">/</span>
-                    <span>
-                        <label for="data.components.max">{{localize "FALLOUT.TEMPLATES.max"}}</label>
-                        <input type="number" name="data.components.max" class="num-short-2" value="{{data.components.max}}">
-                    </span>
-                </div>
                 <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.Locations"}}</h4>
                 <ol>
                     {{#each list as |item id|}}
@@ -71,8 +60,6 @@
                                         <span><i class="{{damageFaIconClass res}}" title="{{res}}"></i>:{{resValue}}&nbsp;</span>
                                         {{/each}}
                                     </div>
-                                    <!-- <label class="checkbox-label">{{localize (concat 'FALLOUT.BODYLOCATION.character.' key)}}</label>
-                                    <input class="input-checkbox" type="checkbox" name="data.location.{{key}}" {{checked isChecked}} data-dtype="Boolean" /> -->
                                 </div>
                             </div>
                         </li>
@@ -85,7 +72,7 @@
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             <div class="resource-row align-mid">
                 <label class="resource-label">{{localize "FALLOUT.TEMPLATES.Armor_Type"}} &nbsp;</label>
-                <select name="data.appareltype">
+                <select name="data.appareltype" disabled>
                     {{#select data.appareltype}}
                     {{#each FALLOUT.APPAREL_TYPE as |apparelType key |}}
                     <option class="capitalized" value="{{key}}">{{localize apparelType}}</option>

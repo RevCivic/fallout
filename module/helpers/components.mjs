@@ -64,9 +64,9 @@
       // Iterate over active components, classifying them into categories
       for ( let e of components ) {
         e._getSourceName(); // Trigger a lookup for the source name
-        if ( e.data.disabled ) categories.inactive.components.push(e);
-        else if ( e.isTemporary ) categories.temporary.components.push(e);
-        else categories.passive.components.push(e);
+        if ( e.data.disabled ) categories.inactive.components.list.push(e);
+        else if ( e.isTemporary ) categories.temporary.components.list.push(e);
+        else categories.passive.components.list.push(e);
       }
       return categories;
   }
