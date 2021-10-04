@@ -18,13 +18,14 @@ export class FalloutItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
+    const fs = require('fs');
     const path = "systems/fallout/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    if (File.exists(`${path}/item-${this.item.data.type}-sheet.html`)) {
+    if (fs.existsSync(`${path}/item-${this.item.data.type}-sheet.html`)) {
       return `${path}/item-${this.item.data.type}-sheet.html`;
     } else {
       return `${path}/item-sheet.html`;
