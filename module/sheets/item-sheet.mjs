@@ -62,34 +62,6 @@ export class FalloutItemSheet extends ItemSheet {
 
   /* -------------------------------------------- */
 
-
-  /**
- * Handle creating a new Owned Item for the parent item using initial data defined in the HTML dataset
- * @param {Event} event   The originating click event
- * @private
- */
-  async _onItemCreate(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    // Get the type of item to create.
-    const type = header.dataset.type;
-    // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-    // Prepare the item object.   
-    const itemData = {
-      name: name,
-      type: type,
-      data: data
-    };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
-    // Finally, create the item!
-    return await Item.create(itemData, { parent: this.item });
-  }
-
-
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
@@ -117,6 +89,27 @@ export class FalloutItemSheet extends ItemSheet {
         qu['value'] = $(i).data('tagValue');
       });
       await this.item.setFlag('fallout', flagKey, flags);
+    });
+
+    html.find(".item-create").click(async (event) => {
+      event.preventDefault();
+      const header = event.currentTarget;
+      // Get the type of item to create.
+      const type = header.dataset.type;
+      // Grab any data associated with this control.
+      const data = duplicate(header.dataset);
+      // Initialize a default name.
+      const name = `New ${type.capitalize()}`;
+      // Prepare the item object.   
+      const itemData = {
+        name: name,
+        type: type,
+        data: data
+      };
+      // Remove the type from the dataset since it's in the itemData.type prop.
+      delete itemData.data["type"];
+      // Finally, create the item!
+      return await Item.create(itemData, { parent: this.item });
     });
 
     // Tag Rank Change
