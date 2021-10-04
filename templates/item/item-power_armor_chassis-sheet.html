@@ -42,9 +42,9 @@
             <div class="flexrow resource-row align-mid">
                 <label class="resource-label">{{localize "FALLOUT.COMPONENTS.components"}}</label>
                 <h4 class="resource-header">{{localize "FALLOUT.TEMPLATES.Locations"}}</h4>
-                <ol>
+                <ol class="items-list">
                     <li class="item apparel flexrow items-header">
-                        <div class="flexrow flexlarge item-name upperC">{{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</div>
+                        <div class="flexrow flexlarge item-name upperC">{{localize ITEM.TypePower_armor_component}}</div>
                         <div class="flexrow flexlarge item-info">
                             <div class="text-center flex2">
                                 <p>{{localize "FALLOUT.TEMPLATES.Locations"}}</p>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="item-controls">
-                            <a class="item-control item-create" title="Create item" data-type="apparel" data-appareltype="{{apparel.apparelType}}"><i class="fas fa-plus"></i> {{localize (concat 'FALLOUT.APPAREL.' apparel.apparelType)}}</a>
+                            <a class="item-control item-create" title="Create item" data-type="apparel" data-appareltype="powerArmorComponent"><i class="fas fa-plus"></i> {{localize ITEM.TypePower_armor_component}}</a>
                         </div>
                     </li>
                     {{#each list as |item id|}}
