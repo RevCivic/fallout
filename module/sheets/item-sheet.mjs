@@ -109,7 +109,8 @@ export class FalloutItemSheet extends ItemSheet {
       // Remove the type from the dataset since it's in the itemData.type prop.
       delete itemData.data["type"];
       // Finally, create the item!
-      return await Item.create(itemData, { parent: this.item });
+      console.log(header);
+      return await Item.create(itemData, { parent: header.item });
     });
 
     // Tag Rank Change
