@@ -6,7 +6,7 @@
 	"minimumCoreVersion": "0.8.6",
 	"compatibleCoreVersion": "0.8.9",
 	"author": "HappySteve",
-	"authors: ["HappySteve", "RevCivic"]
+	"authors: ["HappySteve", "RevCivic"],
 	"esmodules": ["module/fallout.mjs"],
 	"styles": ["css/fallout.css"],
 	"scripts": [],
